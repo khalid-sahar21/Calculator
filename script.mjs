@@ -1,17 +1,26 @@
-let result = document.getElementById("result");
+let display = document.getElementById('display');
+let currentInput = '';
 
-function appendToResult(value) {
-    result.value += value;
+function appendToDisplay(value) {
+    currentInput += value;
+    display.value = currentInput;
 }
 
-function clearResult() {
-    result.value = "";
+function clearDisplay() {
+    currentInput = '';
+    display.value = '';
 }
 
 function calculateResult() {
     try {
-        result.value = eval(result.value);
+        currentInput = eval(currentInput);
+        display.value = currentInput;
     } catch (error) {
-        result.value = "Error";
+        display.value = 'Error';
     }
+}
+
+function changeSign() {
+    currentInput = -currentInput;
+    display.value = currentInput;
 }
